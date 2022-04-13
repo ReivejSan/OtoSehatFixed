@@ -7,7 +7,7 @@
 
 import UIKit
 
-private let dateFormatter: DateFormatter = {
+let dateFormatter: DateFormatter = {
     print("create date formatter")
     let dateFormatter = DateFormatter()
     dateFormatter.dateStyle = .short
@@ -34,6 +34,10 @@ class ToDoDetailTableViewController: UITableViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var noteView: UITextView!
+    
+    @IBAction func datePickerChange(_ sender: UIDatePicker) {
+        dateLabel.text = dateFormatter.string(from: sender.date)
+    }
     
     var toDoItem: ToDoItem!
     
